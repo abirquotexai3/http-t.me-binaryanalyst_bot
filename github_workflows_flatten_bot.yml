@@ -1,0 +1,28 @@
+name: Run Flatten Bot
+
+on:
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+  push:
+    branches:
+      - main # Runs this workflow when code is pushed to the main branch
+
+jobs:
+  run-flatten-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x' # Specify Python version
+
+    - name: Install dependencies
+      run: pip install --upgrade pip
+
+    - name: Run Flatten Bot
+      run: |
+        echo 'Running the Flatten Bot script...'
+        python flatten_bot.py

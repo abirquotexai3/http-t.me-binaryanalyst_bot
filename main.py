@@ -5,7 +5,7 @@ import time
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 
-TOKEN = "7590651466:AAEr-RTlHBFYpBt4sm1NSPbCJ6jesDZhBoY"  # আপনার বট টোকেন
+TOKEN = "7940316241:AAEb4TCc_iZpWTloCkrRY1XFTT4YjqL8HLY আপনার বট টোকেন
 CHAT_ID = 7865578608  # আপনার চ্যাট আইডি (int টাইপে)
 
 logging.basicConfig(level=logging.INFO)
@@ -28,15 +28,15 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     image.save("annotated.png")
 
     # Prediction রেজাল্ট
-    msg = "Prediction Result:\n👉 Next Candle: UP\n👉 Probability: 78%\n\n⚠️ Disclaimer: Trading involves risk. Invest wisely."
-    keyboard = [[InlineKeyboardButton("Join Telegram", url="https://t.me/your_channel")]]
+    msg = "Prediction Result:\n👉 Next Candle: UP\n👉 Probability: 78%\n\nDisclaimer: Trading involves risk. Invest wisely."
+    keyboard = [[InlineKeyboardButton("Join Telegram", url="http://t.me/abirquotexai3_bot")]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     with open("annotated.png", "rb") as img_file:
         await update.message.reply_photo(img_file, caption=msg, reply_markup=reply_markup)
 
 def main():
-    app = Application.builder().token(TOKEN).build()
+    app = Application.builder().token(7940316241:AAEb4TCc_iZpWTloCkrRY1XFTT4YjqL8HLY).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
     app.run_polling()
